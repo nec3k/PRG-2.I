@@ -53,8 +53,8 @@ class Autor:
         return self.jmeno + " " + self.prijmeni+" napsal knihy v těchto žánrech: " + x[0:-2]
 
 
-kniha1 = Kniha("Babička", "Pevná", 420, 888777999, 2012, "Velice zajímavá kniha o Babičkce", "Tragédie", 400)
-kniha2 = Kniha("Batman", "Pevná", 333, 888777998, 1958, "Kniha o Dědečkovi", "Tragédie", 220)
+kniha1 = Kniha("Babička", "Pevná", 420, 888777999, 2012, "Velice zajímavá kniha o Babičce", "Tragédie", 400)
+kniha2 = Kniha("Batman", "Pevná", 333, 888777998, 1958, "Kniha o Superhrdinovy", "Tragédie", 220)
 kniha3 = Kniha("Malý princ", "Měkká", 9, 888777997, 1988, "Příběh Malého prince", "Komedie", 300)
 nemcova = Autor("Karel", "Vomáčka", 41, [kniha1, kniha2])
 Autor.pridatknihu(nemcova, kniha3)
