@@ -9,6 +9,9 @@ class Kniha:
         self.zanr = zanr
         self.cena = cena
 
+    def __str__(self):
+        return "Kniha "+self.nazev+", vazba: "+self.vazba+", počet stran: "+ str(self.pocet_stran) + ", ISBN: "+ str(self.ISBN) + ", rok vydání: "+ str(self.rok_vydani)+", popis: "+self.popis+", žánr: "+self.zanr+", cena: "+str(self.cena)+"Kč"
+
 
 class Autor:
     def __init__(self, jmeno, prijmeni, vek, seznam_knih):
@@ -16,15 +19,17 @@ class Autor:
         self.prijmeni = prijmeni
         self.vek = vek
         self.seznam_knih = seznam_knih
+        self.autorovy_knihy = ""
+        for i in self.seznam_knih:
+            self.autorovy_knihy = self.autorovy_knihy + i.nazev + ", "
+        self.autorovy_knihy = self.autorovy_knihy[0:-2]
 
     def __str__(self):
-        x = ""
-        for i in self.seznam_knih:
-            x = x + i.nazev + ", "
-        return self.jmeno + " " + self.prijmeni + ", " + str(self.vek) + " let. Seznam knih: " + x[0:-2]
+        return self.jmeno + " " + self.prijmeni + ", " + str(self.vek) + " let. Seznam knih: " + self.autorovy_knihy
 
     def pridatknihu(self, novakniha):
         self.seznam_knih.append(novakniha)
+        self.autorovy_knihy = self.autorovy_knihy + ", " + novakniha.nazev
 
     def nejstarsi_kniha(self):
         x = self.seznam_knih[0]
@@ -56,10 +61,12 @@ class Autor:
 kniha1 = Kniha("Babička", "Pevná", 421, 888777999, 2012, "Velice zajímavá kniha o Babičce", "Tragédie", 400)
 kniha2 = Kniha("Batman", "Pevná", 333, 888777998, 1958, "Kniha o Superhrdinovi", "Tragédie", 220)
 kniha3 = Kniha("Malý princ", "Měkká", 9, 888777997, 1988, "Příběh Malého prince", "Komedie", 300)
-nemcova = Autor("Karel", "Vomáčka", 41, [kniha1, kniha2])
-Autor.pridatknihu(nemcova, kniha3)
-print(nemcova)
-print(nemcova.nejstarsi_kniha())
-print(nemcova.vsechny_ISBN())
-print(nemcova.soucet_stranek())
-print(nemcova.zanry())
+osoba = Autor("Karel", "Vomáčka", 41, [kniha1, kniha2])
+Autor.pridatknihu(osoba, kniha3)
+print(osoba)
+print(osoba.nejstarsi_kniha())
+print(osoba.vsechny_ISBN())
+print(osoba.soucet_stranek())
+print(osoba.zanry())
+print(kniha1)
+print(osoba.autorovy_knihy)
