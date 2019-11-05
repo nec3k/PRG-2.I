@@ -30,7 +30,7 @@ class Osoba:
         return self.jmeno + " " + self.prijmeni
 
     def __str__(self):
-        return self.celejmeno() + "má email " + self.email + " a používá tento emailový server: " + self.email_server
+        return self.celejmeno() + " má email " + self.email + " a používá tento emailový server: " + self.email_server
 
 
 os1 = Osoba("Karel", "Vomáčka", "karel@odbornaskola.cz", "postak.odbornaskola.cz")
