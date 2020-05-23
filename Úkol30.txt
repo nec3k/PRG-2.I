@@ -1,0 +1,5 @@
+SELECT COUNT(id) FROM `knihy`
+SELECT COUNT(id) FROM `autori`
+SELECT jmeno, prijmeni, count(*) as Pocet_knih FROM knihy JOIN autori ON vazba_na_autora = autori.ID GROUP BY vazba_na_autora 
+SELECT prijmeni, count(*) as Pocet FROM autori GROUP BY prijmeni  
+SELECT rok, count(*) as Pocet FROM knihy GROUP BY rok 
